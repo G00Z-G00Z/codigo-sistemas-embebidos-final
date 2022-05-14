@@ -1,17 +1,17 @@
 // Pines de entrada
-#define PIN_LED_LUZ_ARTIFICIAL 7;
-#define PIN_PERSIANA1 6;
-#define PIN_PERSIANA2 5;
-#define PIN_VENTANA1 4;
-#define PIN_VENTANA2 3;
-#define PIN_ABANICO 2;
-#define PIN_BOMBILLA_CALOR 0;
+#define PIN_LED_LUZ_ARTIFICIAL 7
+#define PIN_PERSIANA1 6
+#define PIN_PERSIANA2 5
+#define PIN_VENTANA1 4
+#define PIN_VENTANA2 3
+#define PIN_ABANICO 2
+#define PIN_BOMBILLA_CALOR 0
 
 // Pines de salida
-#define PIN_BIT0 8;
-#define PIN_BIT1 9;
-#define PIN_BIT2 10;
-#define PIN_BIT3 11;
+#define PIN_BIT0 8
+#define PIN_BIT1 9
+#define PIN_BIT2 10
+#define PIN_BIT3 11
 
 int Estado_Ventana;
 int Estado_Persiana;
@@ -58,6 +58,45 @@ void print_state(){
   Serial.print(Estado_Persiana);
   Serial.println(Estado_Ventana);
 }
+
+
+class Motor {
+
+  private : 
+    int state = 0;
+    int pin;
+
+    void move_motor(){
+
+      for(int x; x<500; x++){
+        digitalWrite(pin,HIGH); 
+      }
+      state = 1;
+    }
+
+  public : 
+
+    Motor(int pinNumber){
+      pin = pinNumber;
+      pinMode(pin, OUTPUT);
+    }
+
+    void open(){
+      if (state == 0){
+        move_motor();
+        state = 1;
+      }
+    } 
+
+    void close(){
+      if (state == 1){
+        move_motor();
+        state = 0;
+      }
+    }           
+
+};
+
 
 
 void loop(){
@@ -287,11 +326,11 @@ void loop(){
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Persiana1,HIGH);
+        digitalWrite(PIN_PERSIANA1,HIGH);
       }
       Estado_Persiana = 0;
     }
-    digitalWrite(Persiana1,LOW);
+    digitalWrite(PIN_PERSIANA1,LOW);
 
 
   }
@@ -314,11 +353,11 @@ void loop(){
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Persiana1,HIGH);
+        digitalWrite(PIN_PERSIANA1,HIGH);
       }
       Estado_Persiana = 0;
     }
-    digitalWrite(Persiana1,LOW);
+    digitalWrite(PIN_PERSIANA1,LOW);
 
 
   }
@@ -341,11 +380,11 @@ void loop(){
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Persiana1,HIGH);
+        digitalWrite(PIN_PERSIANA1,HIGH);
       }
       Estado_Persiana = 0;
     }
-    digitalWrite(Persiana1,LOW);
+    digitalWrite(PIN_PERSIANA1,LOW);
 
 
   }
@@ -368,11 +407,11 @@ void loop(){
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Persiana1,HIGH);
+        digitalWrite(PIN_PERSIANA1,HIGH);
       }
       Estado_Persiana = 0;
     }
-    digitalWrite(Persiana1,LOW);
+    digitalWrite(PIN_PERSIANA1,LOW);
 
 
   }
@@ -394,11 +433,11 @@ void loop(){
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Persiana1,HIGH);
+        digitalWrite(PIN_PERSIANA1,HIGH);
       }
       Estado_Persiana = 0;
     }
-    digitalWrite(Persiana1,LOW);
+    digitalWrite(PIN_PERSIANA1,LOW);
 
 
   }
@@ -420,11 +459,11 @@ void loop(){
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Persiana1,HIGH);
+        digitalWrite(PIN_PERSIANA1,HIGH);
       }
       Estado_Persiana = 0;
     }
-    digitalWrite(Persiana1,LOW);
+    digitalWrite(PIN_PERSIANA1,LOW);
 
 
   }
@@ -446,11 +485,11 @@ void loop(){
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Persiana1,HIGH);
+        digitalWrite(PIN_PERSIANA1,HIGH);
       }
       Estado_Persiana = 0;
     }
-    digitalWrite(Persiana1,LOW);
+    digitalWrite(PIN_PERSIANA1,LOW);
 
 
   }
@@ -472,11 +511,11 @@ void loop(){
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Persiana1,HIGH);
+        digitalWrite(PIN_PERSIANA1,HIGH);
       }
       Estado_Persiana = 0;
     }
-    digitalWrite(Persiana1,LOW);
+    digitalWrite(PIN_PERSIANA1,LOW);
 
 
   }  
