@@ -14,8 +14,14 @@
 #define PIN_BIT3 11
 
 
+// bits de entrada
 int bit_0_luz, bit_1_tmp_alta, bit_2_tmp_baja, bit_3_gas; // Variables de lectura
 
+/**
+ * Motor
+ *
+ * Esta clase maneja como abrir y cerrar los botones. 
+ */
 class Motor {
 
   private : 
@@ -27,6 +33,7 @@ class Motor {
       for(int x; x<500; x++){
         digitalWrite(pin,HIGH); 
       }
+      digitalWrite(pin, LOW);
     }
 
   public : 
