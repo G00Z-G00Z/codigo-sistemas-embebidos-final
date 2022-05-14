@@ -18,14 +18,51 @@ int Estado_Persiana;
 
 int bit0, bit1, bit2, bit3; // Variables de lectura
 
+class Motor {
+
+  private : 
+    bool isClosed = true;
+    int pin_open;
+    int pin_close;
+
+    void move_motor(int pin){
+      for(int x; x<500; x++){
+        digitalWrite(pin,HIGH); 
+      }
+    }
+
+  public : 
+
+    Motor(int pin_open, int pin_close){
+      this->pin_open = pin_open;
+      this->pin_close = pin_close;
+      pinMode(pin_open, OUTPUT);
+      pinMode(pin_close, OUTPUT);
+      close();
+    }
+
+    void open(){
+      if(isClosed){
+        move_motor(pin_open);
+        isClosed = false;
+      }
+    } 
+
+    void close(){
+      if(!isClosed){
+        move_motor(pin_close);
+        isClosed = true;
+      }
+    } 
+};
+
+// Motores para los actuadores
+Motor persiana(PIN_PERSIANA1, PIN_PERSIANA2), ventana(PIN_VENTANA1, PIN_VENTANA2);
+
 void setup(){
 
   // Salidas
   pinMode(PIN_LED_LUZ_ARTIFICIAL, OUTPUT);
-  pinMode(PIN_PERSIANA1, OUTPUT);
-  pinMode(PIN_PERSIANA2, OUTPUT);
-  pinMode(PIN_VENTANA1, OUTPUT);
-  pinMode(PIN_VENTANA2, OUTPUT);
   pinMode(PIN_ABANICO, OUTPUT);
   pinMode(PIN_BOMBILLA_CALOR, OUTPUT);
 
@@ -60,42 +97,7 @@ void print_state(){
 }
 
 
-class Motor {
 
-  private : 
-    int state = 0;
-    int pin;
-
-    void move_motor(){
-
-      for(int x; x<500; x++){
-        digitalWrite(pin,HIGH); 
-      }
-      state = 1;
-    }
-
-  public : 
-
-    Motor(int pinNumber){
-      pin = pinNumber;
-      pinMode(pin, OUTPUT);
-    }
-
-    void open(){
-      if (state == 0){
-        move_motor();
-        state = 1;
-      }
-    } 
-
-    void close(){
-      if (state == 1){
-        move_motor();
-        state = 0;
-      }
-    }           
-
-};
 
 
 
