@@ -1,3 +1,4 @@
+// Pines de entrada
 #define PIN_LED_LUZ_ARTIFICIAL 7;
 #define PIN_PERSIANA1 6;
 #define PIN_PERSIANA2 5;
@@ -6,13 +7,14 @@
 #define PIN_ABANICO 2;
 #define PIN_BOMBILLA_CALOR 0;
 
-int Estado_Ventana;
-int Estado_Persiana;
-
+// Pines de salida
 #define PIN_BIT0 8;
 #define PIN_BIT1 9;
 #define PIN_BIT2 10;
 #define PIN_BIT3 11;
+
+int Estado_Ventana;
+int Estado_Persiana;
 
 int bit0, bit1, bit2, bit3; // Variables de lectura
 
@@ -66,222 +68,222 @@ void loop(){
 
   //Estado 0
   if (bit0 == 0 && bit1 == 0 && bit2 == 0 && bit3 == 0){
-    digitalWrite(LED_Luz_Artificial,HIGH);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,LOW);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,HIGH);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Ventana1,HIGH); //Checar PWM
+        digitalWrite(PIN_VENTANA1,HIGH); //Checar PWM
       }
       Estado_Ventana = 0;
     }
-    digitalWrite(Ventana1,LOW);
+    digitalWrite(PIN_VENTANA1,LOW);
 
     if(Estado_Persiana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Persiana2,HIGH);
+        digitalWrite(PIN_PERSIANA2,HIGH);
       }
       Estado_Persiana = 1;
     }
-    digitalWrite(Persiana2,LOW);
+    digitalWrite(PIN_PERSIANA2,LOW);
 
 
   }
   //Estado 1
-  else if (bit0 == 0 && bit1 == 0 && bit2 == 0 && bit3 == 1){ digitalWrite(LED_Luz_Artificial,HIGH);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,LOW);
+  else if (bit0 == 0 && bit1 == 0 && bit2 == 0 && bit3 == 1){ digitalWrite(PIN_LED_LUZ_ARTIFICIAL,HIGH);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Ventana2,HIGH);
+        digitalWrite(PIN_VENTANA2,HIGH);
       }
       Estado_Ventana = 1;
     }
-    digitalWrite(Ventana2,LOW);
+    digitalWrite(PIN_VENTANA2,LOW);
     if(Estado_Persiana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Persiana2,HIGH);
+        digitalWrite(PIN_PERSIANA2,HIGH);
       }
       Estado_Persiana = 1;
     }
-    digitalWrite(Persiana2,LOW);
+    digitalWrite(PIN_PERSIANA2,LOW);
 
 
   }
   //Estado 2
   else if (bit0 == 0 && bit1 == 0 && bit2 == 1 && bit3 == 0){
-    digitalWrite(LED_Luz_Artificial,HIGH);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,LOW);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,HIGH);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Ventana1,HIGH);
+        digitalWrite(PIN_VENTANA1,HIGH);
       }
       Estado_Ventana = 0;
     }
-    digitalWrite(Ventana1,LOW);
+    digitalWrite(PIN_VENTANA1,LOW);
 
     if(Estado_Persiana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Persiana2,HIGH);
+        digitalWrite(PIN_PERSIANA2,HIGH);
       }
       Estado_Persiana = 1;
     }
-    digitalWrite(Persiana2,LOW);
+    digitalWrite(PIN_PERSIANA2,LOW);
 
 
 
   }
   //Estado 3
   else if (bit0 == 0 && bit1 == 0 && bit2 == 1 && bit3 == 1){
-    digitalWrite(LED_Luz_Artificial,HIGH);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,LOW);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,HIGH);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Ventana2,HIGH);
+        digitalWrite(PIN_VENTANA2,HIGH);
       }
       Estado_Ventana = 1;
     }
-    digitalWrite(Ventana2,LOW);
+    digitalWrite(PIN_VENTANA2,LOW);
 
     if(Estado_Persiana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Persiana2,HIGH);
+        digitalWrite(PIN_PERSIANA2,HIGH);
       }
       Estado_Persiana = 1;
     }
-    digitalWrite(Persiana2,LOW);
+    digitalWrite(PIN_PERSIANA2,LOW);
 
 
 
   }
   //Estado 4
   else if (bit0 == 0 && bit1 == 1 && bit2 == 0 && bit3 == 0){
-    digitalWrite(LED_Luz_Artificial,HIGH);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,HIGH);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,HIGH);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,HIGH);
 
     if(Estado_Ventana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Ventana1,HIGH);
+        digitalWrite(PIN_VENTANA1,HIGH);
       }
       Estado_Ventana = 0;
     }
 
-    digitalWrite(Ventana1,LOW);
+    digitalWrite(PIN_VENTANA1,LOW);
 
     if(Estado_Persiana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Persiana2,HIGH);
+        digitalWrite(PIN_PERSIANA2,HIGH);
       }
       Estado_Persiana = 1;
     }
-    digitalWrite(Persiana2,LOW);
+    digitalWrite(PIN_PERSIANA2,LOW);
 
 
   }
   //Estado 5
   else if (bit0 == 0 && bit1 == 1 && bit2 == 0 && bit3 == 1){
 
-    digitalWrite(LED_Luz_Artificial,HIGH);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,HIGH);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,HIGH);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,HIGH);
 
     if(Estado_Ventana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Ventana2,HIGH);
+        digitalWrite(PIN_VENTANA2,HIGH);
       }
 
       Estado_Ventana = 1;
     }
 
-    digitalWrite(Ventana2,LOW);
+    digitalWrite(PIN_VENTANA2,LOW);
 
     if(Estado_Persiana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Persiana2,HIGH);
+        digitalWrite(PIN_PERSIANA2,HIGH);
       }
       Estado_Persiana = 1;
     }
-    digitalWrite(Persiana2,LOW);
+    digitalWrite(PIN_PERSIANA2,LOW);
 
 
   }
   //Estado 6
   else if (bit0 == 0 && bit1 == 1 && bit2 == 1 && bit3 == 0){
 
-    digitalWrite(LED_Luz_Artificial,HIGH);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,LOW);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,HIGH);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Ventana1,HIGH);
+        digitalWrite(PIN_VENTANA1,HIGH);
       }
 
       Estado_Ventana = 0;
     }
 
-    digitalWrite(Ventana1,LOW);
+    digitalWrite(PIN_VENTANA1,LOW);
 
     if(Estado_Persiana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Persiana2,HIGH);
+        digitalWrite(PIN_PERSIANA2,HIGH);
       }
       Estado_Persiana = 1;
     }
-    digitalWrite(Persiana2,LOW);
+    digitalWrite(PIN_PERSIANA2,LOW);
 
 
   }
   //Estado 7
   else if (bit0 == 0 && bit1 == 1 && bit2 == 1 && bit3 == 1){
 
-    digitalWrite(LED_Luz_Artificial,HIGH);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,LOW);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,HIGH);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Ventana2,HIGH);
+        digitalWrite(PIN_VENTANA2,HIGH);
       }
 
       Estado_Ventana = 1;
     }
 
-    digitalWrite(Ventana2,LOW);
+    digitalWrite(PIN_VENTANA2,LOW);
 
     if(Estado_Persiana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Persiana2,HIGH);
+        digitalWrite(PIN_PERSIANA2,HIGH);
       }
       Estado_Persiana = 1;
     }
-    digitalWrite(Persiana2,LOW);
+    digitalWrite(PIN_PERSIANA2,LOW);
 
 
   }
   //Estado 8
   else if (bit0 == 1 && bit1 == 0 && bit2 == 0 && bit3 == 0){
 
-    digitalWrite(LED_Luz_Artificial,LOW);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,LOW);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,LOW);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Ventana1,HIGH);
+        digitalWrite(PIN_VENTANA1,HIGH);
       }
 
       Estado_Ventana = 0;
     }
 
-    digitalWrite(Ventana1,LOW);
+    digitalWrite(PIN_VENTANA1,LOW);
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
@@ -296,19 +298,19 @@ void loop(){
   //Estado 9
   else if (bit0 == 1 && bit1 == 0 && bit2 == 0 && bit3 == 1){
 
-    digitalWrite(LED_Luz_Artificial,LOW);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,LOW);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,LOW);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Ventana2,HIGH);
+        digitalWrite(PIN_VENTANA2,HIGH);
       }
 
       Estado_Ventana = 1;
     }
 
-    digitalWrite(Ventana2,LOW);
+    digitalWrite(PIN_VENTANA2,LOW);
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
@@ -323,19 +325,19 @@ void loop(){
   //Estado 10
   else if (bit0 == 1 && bit1 == 0 && bit2 == 1 && bit3 == 0){
 
-    digitalWrite(LED_Luz_Artificial,LOW);
-    digitalWrite(Bombilla_Calor,HIGH);
-    digitalWrite(Abanico,LOW);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,LOW);
+    digitalWrite(PIN_BOMBILLA_CALOR,HIGH);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Ventana1,HIGH);
+        digitalWrite(PIN_VENTANA1,HIGH);
       }
 
       Estado_Ventana = 0;
     }
 
-    digitalWrite(Ventana1,LOW);
+    digitalWrite(PIN_VENTANA1,LOW);
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
@@ -350,19 +352,19 @@ void loop(){
   //Estado 11
   else if (bit0 == 1 && bit1 == 0 && bit2 == 1 && bit3 == 1){
 
-    digitalWrite(LED_Luz_Artificial,LOW);
-    digitalWrite(Bombilla_Calor,HIGH);
-    digitalWrite(Abanico,LOW);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,LOW);
+    digitalWrite(PIN_BOMBILLA_CALOR,HIGH);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Ventana2,HIGH);
+        digitalWrite(PIN_VENTANA2,HIGH);
       }
 
       Estado_Ventana = 1;
     }
 
-    digitalWrite(Ventana2,LOW);
+    digitalWrite(PIN_VENTANA2,LOW);
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
@@ -377,18 +379,18 @@ void loop(){
   //Estado 12
   else if (bit0 == 1 && bit1 == 1 && bit2 == 0 && bit3 == 0){
 
-    digitalWrite(LED_Luz_Artificial,LOW);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,HIGH);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,LOW);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,HIGH);
 
     if(Estado_Ventana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Ventana1,HIGH);
+        digitalWrite(PIN_VENTANA1,HIGH);
       }
       Estado_Ventana = 0;
     }
 
-    digitalWrite(Ventana1,LOW);
+    digitalWrite(PIN_VENTANA1,LOW);
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
@@ -403,18 +405,18 @@ void loop(){
   //Estado 13
   else if (bit0 == 1 && bit1 == 1 && bit2 == 0 && bit3 == 1){
 
-    digitalWrite(LED_Luz_Artificial,LOW);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,HIGH);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,LOW);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,HIGH);
 
     if(Estado_Ventana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Ventana2,HIGH);
+        digitalWrite(PIN_VENTANA2,HIGH);
       }
       Estado_Ventana = 1;
     }
 
-    digitalWrite(Ventana2,LOW);
+    digitalWrite(PIN_VENTANA2,LOW);
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
@@ -429,18 +431,18 @@ void loop(){
   //Estado 14
   else if (bit0 == 1 && bit1 == 1 && bit2 == 1 && bit3 == 0){
 
-    digitalWrite(LED_Luz_Artificial,LOW);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,LOW);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,LOW);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 1){
       for(int x; x<500; x++){
-        digitalWrite(Ventana1,HIGH);
+        digitalWrite(PIN_VENTANA1,HIGH);
       }
       Estado_Ventana = 0;
     }
 
-    digitalWrite(Ventana1,LOW);
+    digitalWrite(PIN_VENTANA1,LOW);
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
@@ -455,18 +457,18 @@ void loop(){
   //Estado 15
   else if (bit0 == 1 && bit1 == 1 && bit2 == 1 && bit3 == 1){
 
-    digitalWrite(LED_Luz_Artificial,LOW);
-    digitalWrite(Bombilla_Calor,LOW);
-    digitalWrite(Abanico,LOW);
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL,LOW);
+    digitalWrite(PIN_BOMBILLA_CALOR,LOW);
+    digitalWrite(PIN_ABANICO,LOW);
 
     if(Estado_Ventana == 0){
       for(int x; x<500; x++){
-        digitalWrite(Ventana2,HIGH);
+        digitalWrite(PIN_VENTANA2,HIGH);
       }
       Estado_Ventana = 1;
     }
 
-    digitalWrite(Ventana2,LOW);
+    digitalWrite(PIN_VENTANA2,LOW);
 
     if(Estado_Persiana == 1){
       for(int x; x<500; x++){
