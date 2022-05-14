@@ -113,8 +113,14 @@ void loop(){
   // Manejo de persiana
   // Si hay luz natural, se habre, si no, se cierra
 
-  bit_0_luz == HIGH ? persiana.open() : persiana.close();
-
+  if (bit_0_luz == HIGH){
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL, LOW);
+    persiana.open();
+  } else {
+    digitalWrite(PIN_LED_LUZ_ARTIFICIAL, HIGH);
+    persiana.close();
+  }
+  
   // Manejo temperatura
   // No puede haber un caso con ambos, entonces se ignorara
   bit_1_tmp_alta == HIGH ? digitalWrite(PIN_ABANICO, HIGH) : digitalWrite(PIN_ABANICO, LOW);
